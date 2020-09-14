@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <ul>
+            <li v-for="(user, index) in users" :key="user.name" v-if="user.gender == '女'">
+           
+                当前索引： {{index}} ==> {{user.name}} ==> {{user.gender}} ==>{{user.age}}
+                    <!-- 1、显示user信息：v-for="item in items" -->
+                    <!-- 2、获取数组下标：v-for="(item,index) in items" -->
+                    <!-- 3、遍历对象：
+                            v-for="value in object"
+                            v-for="(value,key) in object"
+                            v-for="(value,key,index) in object" 
+                    -->
+                
+                <br>
+                对象信息： 
+                <span v-for="(v, k,i) in user">
+                    {{k}} == {{v}}  == {{i}}
+                </span>
+    
+                <!-- 4、遍历的时候都加上： key来区分不同的数据，提供vue渲染效率 -->
+    
+            </li>
+    
+        </ul>
+
+        <ul>
+            <li v-for="(num, index) in nums" :key="index">
+                {{num}}
+            </li>
+        </ul>
+
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                users: [{name:'范冰冰',gender: '女',age: 21},
+                {name:'刘帅',gender: '男',age: 24},
+                {name:'李冰',gender: '女',age: 21},
+                {name:'马云',gender: '男',age: 56},
+                {name:'李嘉诚',gender: '男',age: 99},
+                ],
+
+                nums: [1,2,3,4,5,6]
+
+
+            }
+        })
+    </script>
+</body>
+</html>
